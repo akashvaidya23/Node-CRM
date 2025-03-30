@@ -8,16 +8,21 @@ const UserSchema = new mongoose.Schema({
     },
     last_name: {
         type: String,
-        required: true
     },
     email: {
         type: String,
         required: true,
         unique: true
     },
+    role : {
+        type: String,
+        required: true,
+        enum: ['admin', 'customer', 'sales_namager', 'superAdmin'],
+        default: 'customer'
+    },
     password: {
         type: String,
-        required: true
+        required: true,
     },
     is_active:{
         type: Boolean,
